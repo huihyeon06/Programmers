@@ -1,15 +1,20 @@
 class Solution {
     public int solution(int n) {
-        int answer=1;
-        for(int i=3; i<=n; i++){
-            boolean prime=true;
-            for(int j=2; j<=Math.sqrt(i); j++){
-                if(i%j==0){
-                    prime=false;
-                    break;
+        int answer=0;
+        boolean prime[]=new boolean[n+1];
+        for(int i=2; i<=n; i++){
+            prime[i]=true;
+        }
+        int root=(int)Math.sqrt(n);
+        for(int i=2; i<=root; i++){
+            if(prime[i]==true){
+                for(int j=i; j*i<=n; j++){
+                    prime[i*j]=false;
                 }
             }
-            if(prime==true){
+        }
+        for(int i=2; i<=n; i++){
+            if(prime[i]==true){
                 answer++;
             }
         }
