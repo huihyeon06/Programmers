@@ -13,8 +13,7 @@ class Solution {
                 min=si[i];
             }
         }
-        String answer = String.valueOf(min+" "+max);
         
-        return answer;
+        return min+" "+max;
     }
 }
